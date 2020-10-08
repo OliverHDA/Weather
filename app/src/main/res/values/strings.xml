@@ -2,4 +2,7 @@
     <string name="app_name">Weather</string>
     <string name="hello_world">Hello World!</string>
     <string name="city">City</string>
+    <string name="moscow">Moscow</string>
+    <string name="london">London</string>
+    <string name="new_york">New York</string>
 </resources>
