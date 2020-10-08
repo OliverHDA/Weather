@@ -13,10 +13,9 @@ public class MainActivity extends AppCompatActivity {
 
         TextView greeting = findViewById(R.id.greeting);
         if (greeting != null) {
-            String hello = getResources().getString(R.string.hello_world);
+            String hello = getString(R.string.hello_world);
             hello += "!!";
             greeting.setText(hello);
-
         }
     }
 }
