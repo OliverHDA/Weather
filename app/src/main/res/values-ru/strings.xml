@@ -5,4 +5,5 @@
     <string name="moscow">Москва</string>
     <string name="london">Лондон</string>
     <string name="new_york">Нью-Йорк</string>
+    <string name="text_counter">Счетчик</string>
 </resources>
