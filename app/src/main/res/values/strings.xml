@@ -6,4 +6,8 @@
     <string name="london">London</string>
     <string name="new_york">New York</string>
     <string name="text_counter">Counter</string>
+    <string name="show_weather">Show weather</string>
+    <string name="lastAnswer">Last Answer</string>
+    <string name="back">Back</string>
+    <string name="answer">Answer</string>
 </resources>

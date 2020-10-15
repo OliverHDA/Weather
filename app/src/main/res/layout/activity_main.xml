@@ -25,17 +25,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/textCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:text="@string/text_counter"
         android:textColor="@color/colorWhite"
         android:textSize="42sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/last_answer" />
+
+    <TextView
+        android:id="@+id/last_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lastAnswer"
+        android:textColor="@color/colorRed"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/city" />
-
 
     <Button
         android:id="@+id/button_moscow"
@@ -66,6 +79,26 @@
         android:text="@string/new_york"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/button_show_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/button_london"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/show_weather"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edit_text_city"
+        android:textColor="@color/colorRed"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:textSize="42sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_show_weather" />
 
 
 </android.support.constraint.ConstraintLayout>

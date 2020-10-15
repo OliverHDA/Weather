@@ -6,4 +6,8 @@
     <string name="london">Лондон</string>
     <string name="new_york">Нью-Йорк</string>
     <string name="text_counter">Счетчик</string>
+    <string name="show_weather">Показать погоду</string>
+    <string name="lastAnswer">Последний ответ</string>
+    <string name="back">Назад</string>
+    <string name="answer">Ответ</string>
 </resources>
