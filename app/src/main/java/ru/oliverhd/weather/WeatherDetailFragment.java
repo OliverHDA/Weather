@@ -9,9 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
-public class WeatherDetailFragment extends Fragment{
+public class WeatherDetailFragment extends Fragment {
 
     public static final String PARCEL = "parcel";
 
@@ -44,7 +45,15 @@ public class WeatherDetailFragment extends Fragment{
         TypedArray imgs = getResources().obtainTypedArray(R.array.cities_img);
         Parcel parcel = getParcel();
 
-        imageView.setImageResource(imgs.getResourceId(parcel.getImageIndex(),-1));
-        textView.setText("Погода в Москве просто огонь!");
+        imageView.setImageResource(imgs.getResourceId(parcel.getImageIndex(), -1));
+
+        if (parcel.getCityName().equals(getResources().getStringArray(R.array.cities)[0])) {
+            textView.setText("Погода в Москве просто огонь!");
+        } else if (parcel.getCityName().equals(getResources().getStringArray(R.array.cities)[1])) {
+            textView.setText("Погода в Лондоне нормальная.");
+        } else if (parcel.getCityName().equals(getResources().getStringArray(R.array.cities)[2])) {
+            textView.setText("Погода в Нью-Йорке не очень");
+        }
+
     }
 }

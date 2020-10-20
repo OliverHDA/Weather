@@ -50,8 +50,8 @@ public class CitiesFragment extends Fragment implements Constants {
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
         outState.putSerializable(CURRENT_CITY, currentParcel);
+        super.onSaveInstanceState(outState);
     }
 
     private void initList (View view) {
@@ -63,14 +63,13 @@ public class CitiesFragment extends Fragment implements Constants {
             TextView tv = new TextView(getContext());
             tv.setText(city);
             tv.setTextSize(30);
-
             layoutView.addView(tv);
             final int fi = i;
             tv.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     currentParcel = new Parcel(fi, getResources().getStringArray(R.array.cities)[fi]);
-                    
+                    showWeatherDetail (currentParcel);
                 }
             });
         }

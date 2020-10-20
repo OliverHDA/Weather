@@ -2,10 +2,6 @@ package ru.oliverhd.weather;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import java.text.DateFormat;
-import java.util.Date;
-
 public class MainActivity extends AppCompatActivity{
 
     @Override
