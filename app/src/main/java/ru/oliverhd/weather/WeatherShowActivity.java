@@ -20,7 +20,7 @@ public class WeatherShowActivity extends AppCompatActivity implements Constants 
             Parcel parcel = (Parcel) getIntent().getSerializableExtra(WeatherDetailFragment.PARCEL);
             WeatherDetailFragment details = WeatherDetailFragment.create(parcel);
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, details).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container2, details).commit();
         }
 
     }

@@ -1,6 +1,5 @@
 package ru.oliverhd.weather;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -84,9 +83,11 @@ public class CitiesFragment extends Fragment implements Constants {
                 getFragmentManager().beginTransaction().replace(R.id.weather_info, detail).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
             }
         } else {
-            Intent intent = new Intent(getContext(), WeatherShowActivity.class);
-            intent.putExtra(PARCEL, parcel);
-            startActivity(intent);
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, WeatherDetailFragment.create(parcel))
+                    .addToBackStack(null)
+                    .commit();
         }
     }
 }
