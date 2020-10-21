@@ -15,6 +15,11 @@ public class MainActivity extends AppCompatActivity{
                     .beginTransaction()
                     .replace(R.id.fragment_container, new CitiesFragment())
                     .commit();
+        } else {
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.cities, new CitiesFragment())
+                    .commit();
         }
     }
 }
