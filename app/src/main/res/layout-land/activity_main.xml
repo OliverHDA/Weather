@@ -5,12 +5,11 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
-    <fragment
+    <FrameLayout
         android:id="@+id/cities"
-        android:name="ru.oliverhd.weather.CitiesFragment"
         android:layout_width="0px"
         android:layout_height="match_parent"
-        android:layout_weight="1" />
+        android:layout_weight="1"/>
 
     <FrameLayout
         android:id="@+id/weather_info"

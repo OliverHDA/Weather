@@ -12,9 +12,8 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class WeatherDetailFragment extends Fragment {
+public class WeatherDetailFragment extends Fragment implements Constants {
 
-    public static final String PARCEL = "parcel";
 
     public static WeatherDetailFragment create(Parcel parcel) {
         WeatherDetailFragment fragment = new WeatherDetailFragment();
