@@ -10,4 +10,5 @@
     <string name="lastAnswer">Last Answer</string>
     <string name="back">Back</string>
     <string name="answer">Answer</string>
+    <string name="temperature">Temperature</string>
 </resources>

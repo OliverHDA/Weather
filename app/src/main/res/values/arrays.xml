@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cities">
+    <item>Moscow</item>
+    <item>London</item>
+    <item>New York</item>
+    </string-array>
+
+    <integer-array name="cities_img">
+        <item>@drawable/moscow</item>
+        <item>@drawable/london</item>
+        <item>@drawable/new_york</item>
+    </integer-array>
+
+</resources>
