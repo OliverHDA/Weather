@@ -6,11 +6,11 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class CitiesFragment extends Fragment implements Constants {
 
@@ -26,7 +26,11 @@ public class CitiesFragment extends Fragment implements Constants {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initList(view);
+
+        String[] data = getResources().getStringArray(R.array.cities);
+        initRecyclerView(data, view);
+
+//        initList(view);
     }
 
     @Override
@@ -53,28 +57,51 @@ public class CitiesFragment extends Fragment implements Constants {
         super.onSaveInstanceState(outState);
     }
 
-    private void initList (View view) {
-        LinearLayout layoutView = (LinearLayout) view;
-        String[] cities = getResources().getStringArray(R.array.cities);
+    private void initRecyclerView(String[] data, View view) {
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
 
-        for (int i = 0; i < cities.length ; i++) {
-            String city = cities[i];
-            TextView tv = new TextView(getContext());
-            tv.setText(city);
-            tv.setTextSize(30);
-            layoutView.addView(tv);
-            final int fi = i;
-            tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    currentParcel = new Parcel(fi, getResources().getStringArray(R.array.cities)[fi]);
-                    showWeatherDetail (currentParcel);
-                }
-            });
-        }
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+
+        SocnetAdapter adapter = new SocnetAdapter(data);
+        recyclerView.setAdapter(adapter);
+        adapter.SetOnItemClickListener(new SocnetAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, String city) {
+                currentParcel = new Parcel(0, city);
+                showWeatherDetail(currentParcel);
+            }
+        });
     }
 
-    public void showWeatherDetail (Parcel parcel) {
+//    private void initList(View view) {
+//        LinearLayout layoutView = (LinearLayout)view;
+//        String[] cities = getResources().getStringArray(R.array.cities);
+//
+//        LayoutInflater ltInflater = getLayoutInflater();
+//
+//        for(int i=0; i < cities.length; i++){
+//            String city = cities[i];
+//
+//            View item = ltInflater.inflate(R.layout.item, layoutView, false);
+//
+//            TextView tv = item.findViewById(R.id.textView);
+//            tv.setText(city);
+//            layoutView.addView(item);
+//            final int fi = i;
+//            tv.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    currentParcel = new Parcel(fi, getResources().getStringArray(R.array.cities)[fi]);
+////                    showWeatherDetail(currentParcel);
+//                }
+//            });
+//        }
+//    }
+
+    public void showWeatherDetail(Parcel parcel) {
         if (isExistWeatherDetail) {
             WeatherDetailFragment detail = (WeatherDetailFragment) getFragmentManager().findFragmentById(R.id.weather_info);
             if (detail == null || detail.getParcel().getImageIndex() != parcel.getImageIndex()) {
