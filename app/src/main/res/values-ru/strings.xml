@@ -2,6 +2,7 @@
     <string name="app_name">Погода</string>
     <string name="hello_world">Привет Мир!</string>
     <string name="city">Город</string>
+    <string name="saint_petersburg">Санкт-Петербург</string>
     <string name="moscow">Москва</string>
     <string name="london">Лондон</string>
     <string name="new_york">Нью-Йорк</string>

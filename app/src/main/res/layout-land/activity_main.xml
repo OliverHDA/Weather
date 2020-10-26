@@ -9,13 +9,19 @@
         android:id="@+id/cities"
         android:layout_width="0px"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/weather_info"
         android:layout_width="0px"
         android:layout_height="match_parent"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
 
 </LinearLayout>

@@ -4,6 +4,11 @@
     <item>Moscow</item>
     <item>London</item>
     <item>New York</item>
+    <item>Saint Petersburg</item>
+    <item>Voronezh</item>
+    <item>Vologda</item>
+    <item>Penza</item>
+    <item>Cherepovets</item>
     </string-array>
 
     <integer-array name="cities_img">
@@ -12,4 +17,28 @@
         <item>@drawable/new_york</item>
     </integer-array>
 
+    <string-array name="temperature">
+        <item>6°C</item>
+        <item>8°C</item>
+        <item>15°C</item>
+        <item>10°C</item>
+        <item>5°C</item>
+        <item>3°C</item>
+        <item>-2°C</item>
+        <item>-8°C</item>
+        <item>-7°C</item>
+        <item>0°C</item>
+        <item>2°C</item>
+        <item>4°C</item>
+    </string-array>
+
+    <string-array name="days_of_week">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
 </resources>

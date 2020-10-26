@@ -1,15 +1,14 @@
 package ru.oliverhd.weather;
 
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
 public class WeatherDetailFragment extends Fragment implements Constants {
@@ -38,21 +37,23 @@ public class WeatherDetailFragment extends Fragment implements Constants {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ImageView imageView = view.findViewById(R.id.imageView);
         TextView textView = view.findViewById(R.id.weather_info);
-
-        TypedArray imgs = getResources().obtainTypedArray(R.array.cities_img);
         Parcel parcel = getParcel();
+        TextView city = view.findViewById(R.id.city);
+        city.setText(parcel.getCityName());
 
-        imageView.setImageResource(imgs.getResourceId(parcel.getImageIndex(), -1));
+        WeatherComparator weatherComparator = new WeatherComparator(parcel.getCityName());
+        textView.setText(weatherComparator.getTemperature());
 
-        if (parcel.getCityName().equals(getResources().getStringArray(R.array.cities)[0])) {
-            textView.setText("Погода в Москве просто огонь!");
-        } else if (parcel.getCityName().equals(getResources().getStringArray(R.array.cities)[1])) {
-            textView.setText("Погода в Лондоне нормальная.");
-        } else if (parcel.getCityName().equals(getResources().getStringArray(R.array.cities)[2])) {
-            textView.setText("Погода в Нью-Йорке не очень");
-        }
+        String[] data = getResources().getStringArray(R.array.days_of_week);
 
+        RecyclerView recyclerView = view.findViewById(R.id.days_recycler);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(layoutManager);
+
+        recyclerView.setHasFixedSize(true);
+
+        SocnetAdapter adapter = new SocnetAdapter(data);
+        recyclerView.setAdapter(adapter);
     }
 }
