@@ -3,8 +3,6 @@ package ru.oliverhd.weather;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,15 +13,15 @@ public class MainActivity extends AppCompatActivity {
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
 
-//            getSupportFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.fragment_container, new MainFragment())
-//                    .commit();
-
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.fragment_container, new CitiesFragment())
+                    .replace(R.id.fragment_container, new MainFragment())
                     .commit();
+
+//            getSupportFragmentManager()
+//                    .beginTransaction()
+//                    .replace(R.id.fragment_container, new CitiesFragment())
+//                    .commit();
         } else {
             getSupportFragmentManager()
                     .beginTransaction()

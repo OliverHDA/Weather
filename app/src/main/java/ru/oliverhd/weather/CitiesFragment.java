@@ -17,6 +17,14 @@ public class CitiesFragment extends Fragment implements Constants {
     boolean isExistWeatherDetail;
     Parcel currentParcel;
 
+    public static CitiesFragment create(Parcel parcel) {
+        CitiesFragment fragment = new CitiesFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(PARCEL, parcel);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,7 +50,7 @@ public class CitiesFragment extends Fragment implements Constants {
         if (savedInstanceState != null) {
             currentParcel = (Parcel) savedInstanceState.getSerializable(CURRENT_CITY);
         } else {
-            currentParcel = new Parcel(0, getResources().getStringArray(R.array.cities)[0]);
+            currentParcel = new Parcel(getResources().getStringArray(R.array.cities)[0]);
         }
 
         if (isExistWeatherDetail) {
@@ -70,8 +78,13 @@ public class CitiesFragment extends Fragment implements Constants {
         adapter.SetOnItemClickListener(new SocnetAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, String city) {
-                currentParcel = new Parcel(0, city);
-                showWeatherDetail(currentParcel);
+                currentParcel = new Parcel(city);
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fragment_container, MainFragment.create(currentParcel))
+                        .addToBackStack(null)
+                        .commit();
+//                showWeatherDetail(currentParcel);
             }
         });
     }
@@ -104,7 +117,7 @@ public class CitiesFragment extends Fragment implements Constants {
     public void showWeatherDetail(Parcel parcel) {
         if (isExistWeatherDetail) {
             WeatherDetailFragment detail = (WeatherDetailFragment) getFragmentManager().findFragmentById(R.id.weather_info);
-            if (detail == null || detail.getParcel().getImageIndex() != parcel.getImageIndex()) {
+            if (detail == null) {
                 detail = WeatherDetailFragment.create(parcel);
 
                 getFragmentManager().beginTransaction().replace(R.id.weather_info, detail).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();

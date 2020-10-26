@@ -39,16 +39,11 @@ public class WeatherDetailFragment extends Fragment implements Constants {
 
         TextView textView = view.findViewById(R.id.weather_info);
         Parcel parcel = getParcel();
+        TextView city = view.findViewById(R.id.city);
+        city.setText(parcel.getCityName());
 
-        if (parcel.getCityName().equals(getResources().getStringArray(R.array.cities)[0])) {
-            textView.setText("10°C");
-        } else if (parcel.getCityName().equals(getResources().getStringArray(R.array.cities)[1])) {
-            textView.setText("15°C");
-        } else if (parcel.getCityName().equals(getResources().getStringArray(R.array.cities)[2])) {
-            textView.setText("6°C");
-        } else {
-            textView.setText("Погода для города не известна.");
-        }
+        WeatherComparator weatherComparator = new WeatherComparator(parcel.getCityName());
+        textView.setText(weatherComparator.getTemperature());
 
         String[] data = getResources().getStringArray(R.array.days_of_week);
 
@@ -61,20 +56,4 @@ public class WeatherDetailFragment extends Fragment implements Constants {
         SocnetAdapter adapter = new SocnetAdapter(data);
         recyclerView.setAdapter(adapter);
     }
-
-//    private void initRecyclerView(String[] data, View view){
-//        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-//
-//        // Эта установка служит для повышения производительности системы
-//        recyclerView.setHasFixedSize(true);
-//
-//        // Будем работать со встроенным менеджером
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-//        recyclerView.setLayoutManager(layoutManager);
-//
-//        // Установим адаптер
-//        SocnetAdapter adapter = new SocnetAdapter(data);
-//        recyclerView.setAdapter(adapter);
-//    }
-
 }

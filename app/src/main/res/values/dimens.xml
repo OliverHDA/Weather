@@ -2,4 +2,5 @@
 <resources>
     <dimen name="sizeTemperatureText">42sp</dimen>
     <dimen name="sizeCitiesText">42sp</dimen>
+    <dimen name="margin_and_padding">16dp</dimen>
 </resources>

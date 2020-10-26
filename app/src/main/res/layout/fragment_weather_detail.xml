@@ -20,6 +20,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBlack"
+        android:paddingHorizontal="16dp"
+        android:text="@string/city"
+        android:layout_marginTop="@dimen/margin_and_padding"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/sizeTemperatureText"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
