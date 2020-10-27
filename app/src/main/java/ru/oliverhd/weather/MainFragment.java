@@ -88,22 +88,24 @@ public class MainFragment extends Fragment implements Constants {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-//        isOrientationLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
-//
-//        if (savedInstanceState != null) {
-//            currentParcel = (Parcel) savedInstanceState.getSerializable(CURRENT_CITY);
-//        } else {
-//            currentParcel = new Parcel(getResources().getString(R.string.moscow));
+        isOrientationLandscape = getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+
+        if (savedInstanceState != null) {
+            currentParcel = (Parcel) savedInstanceState.getSerializable(CURRENT_CITY);
+        }
+//        else {
+//            currentParcel = new Parcel(getResources().getStringArray(R.array.cities)[0]);
 //        }
-//
+
 //        if (isOrientationLandscape) {
 //            showWeatherDetail(currentParcel);
 //        }
+
     }
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        outState.putSerializable(CURRENT_CITY, currentParcel);
-        super.onSaveInstanceState(outState);
-    }
+//    @Override
+//    public void onSaveInstanceState(@NonNull Bundle outState) {
+//        outState.putSerializable(CURRENT_CITY, currentParcel);
+//        super.onSaveInstanceState(outState);
+//    }
 }

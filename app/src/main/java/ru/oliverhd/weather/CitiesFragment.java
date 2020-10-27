@@ -17,14 +17,6 @@ public class CitiesFragment extends Fragment implements Constants {
     boolean isExistWeatherDetail;
     Parcel currentParcel;
 
-    public static CitiesFragment create(Parcel parcel) {
-        CitiesFragment fragment = new CitiesFragment();
-        Bundle args = new Bundle();
-        args.putSerializable(PARCEL, parcel);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,7 +42,7 @@ public class CitiesFragment extends Fragment implements Constants {
         if (savedInstanceState != null) {
             currentParcel = (Parcel) savedInstanceState.getSerializable(CURRENT_CITY);
         } else {
-            currentParcel = new Parcel(getResources().getStringArray(R.array.cities)[0]);
+            currentParcel = new Parcel(getResources().getStringArray(R.array.cities)[1]);
         }
 
         if (isExistWeatherDetail) {
@@ -73,18 +65,22 @@ public class CitiesFragment extends Fragment implements Constants {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
-        SocnetAdapter adapter = new SocnetAdapter(data);
+        CityAdapter adapter = new CityAdapter(data);
         recyclerView.setAdapter(adapter);
-        adapter.SetOnItemClickListener(new SocnetAdapter.OnItemClickListener() {
+        adapter.SetOnItemClickListener(new CityAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, String city) {
                 currentParcel = new Parcel(city);
-                getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.fragment_container, MainFragment.create(currentParcel))
-                        .addToBackStack(null)
-                        .commit();
-//                showWeatherDetail(currentParcel);
+                if (isExistWeatherDetail) {
+                    showWeatherDetail(currentParcel);
+                } else {
+                    getFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, MainFragment.create(currentParcel))
+                            .addToBackStack(null)
+                            .commit();
+                }
+
             }
         });
     }
@@ -120,7 +116,17 @@ public class CitiesFragment extends Fragment implements Constants {
             if (detail == null) {
                 detail = WeatherDetailFragment.create(parcel);
 
-                getFragmentManager().beginTransaction().replace(R.id.weather_info, detail).setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE).commit();
+                getFragmentManager().
+                        beginTransaction()
+                        .replace(R.id.weather_info, detail)
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                        .commit();
+            }else {
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.weather_info, WeatherDetailFragment.create(parcel))
+                        .addToBackStack(null)
+                        .commit();
             }
         } else {
             getFragmentManager()
