@@ -4,14 +4,13 @@ package ru.oliverhd.weather;
 public class WeatherComparator {
 
     private final String city;
-    private String temperature;
 
     public WeatherComparator(String city) {
         this.city = city;
-        this.temperature = temperature;
     }
 
     public String getTemperature() {
+        String temperature;
         if (city.equals("Moscow")) {
             temperature = "10°C";
             return temperature;

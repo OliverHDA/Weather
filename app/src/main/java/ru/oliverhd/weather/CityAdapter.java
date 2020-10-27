@@ -7,25 +7,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class SocnetAdapter extends RecyclerView.Adapter<SocnetAdapter.ViewHolder> {
+public class CityAdapter extends RecyclerView.Adapter<CityAdapter.ViewHolder> {
 
     private String[] dataSource;
     private OnItemClickListener itemClickListener;
 
-    public SocnetAdapter(String[] dataSource) {
+    public CityAdapter(String[] dataSource) {
         this.dataSource = dataSource;
     }
 
     @NonNull
     @Override
-    public SocnetAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public CityAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item, viewGroup, false);
+                .inflate(R.layout.cities_item, viewGroup, false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SocnetAdapter.ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(@NonNull CityAdapter.ViewHolder viewHolder, int i) {
         viewHolder.getTextView().setText(dataSource[i]);
     }
 

@@ -4,11 +4,14 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 public class WeatherDetailFragment extends Fragment implements Constants {
@@ -38,22 +41,23 @@ public class WeatherDetailFragment extends Fragment implements Constants {
         super.onViewCreated(view, savedInstanceState);
 
         TextView textView = view.findViewById(R.id.weather_info);
-        Parcel parcel = getParcel();
         TextView city = view.findViewById(R.id.city);
+        Parcel parcel = getParcel();
         city.setText(parcel.getCityName());
 
         WeatherComparator weatherComparator = new WeatherComparator(parcel.getCityName());
         textView.setText(weatherComparator.getTemperature());
 
-        String[] data = getResources().getStringArray(R.array.days_of_week);
+        String[] data = getResources().getStringArray(R.array.time);
 
         RecyclerView recyclerView = view.findViewById(R.id.days_recycler);
+//        GridLayoutManager gridLayout = new GridLayoutManager(getActivity(), GridLayoutManager.DEFAULT_SPAN_COUNT, LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
         recyclerView.setHasFixedSize(true);
 
-        SocnetAdapter adapter = new SocnetAdapter(data);
+        DetailAdapter adapter = new DetailAdapter(data);
         recyclerView.setAdapter(adapter);
     }
 }
