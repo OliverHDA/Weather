@@ -1,45 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/card_view"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:background="@color/colorBlack"
     app:cardCornerRadius="15dp"
     app:cardElevation="3dp">
 
     <TextView
 
         android:id="@+id/hour"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/margin_and_padding"
         android:layout_marginBottom="@dimen/margin_and_padding"
-        android:textColor="@color/colorRed"
         android:text="0:00"
         android:textSize="@dimen/sizeDetailText" />
 
     <TextView
         android:id="@+id/hours_temperature"
+        style="@style/textViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:layout_marginHorizontal="@dimen/margin_and_padding"
         android:layout_marginTop="@dimen/margin_and_padding"
         android:layout_marginBottom="@dimen/margin_and_padding"
+
         android:text="@string/temperature"
-        android:textColor="@color/colorRed"
+        android:textColor="@color/colorWhite"
         android:textSize="@dimen/sizeDetailText" />
 
-</android.support.v7.widget.CardView>
-
-    <!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<TextView xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    android:id="@+id/hour"-->
-<!--    android:layout_width="wrap_content"-->
-<!--    android:layout_height="wrap_content"-->
-<!--    android:textSize="@dimen/sizeCitiesText">-->
-<!--</TextView>-->
+</androidx.cardview.widget.CardView>
 
 
 
