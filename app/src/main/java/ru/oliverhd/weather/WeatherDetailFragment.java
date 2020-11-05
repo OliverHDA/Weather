@@ -43,8 +43,8 @@ public class WeatherDetailFragment extends Fragment implements Constants {
         Parcel parcel = getParcel();
         city.setText(parcel.getCityName());
 
-        WeatherComparator weatherComparator = new WeatherComparator(parcel.getCityName());
-        textView.setText(weatherComparator.getTemperature());
+        WeatherHandler weatherHandler = new WeatherHandler(parcel.getCityName());
+        textView.setText(weatherHandler.getTemperature());
 
         String[] data = getResources().getStringArray(R.array.time);
 

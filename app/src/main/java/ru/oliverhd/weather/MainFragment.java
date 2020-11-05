@@ -69,8 +69,8 @@ public class MainFragment extends Fragment implements Constants {
 
 
         TextView temperatureView = view.findViewById(R.id.temperature_text_view);
-        WeatherComparator weatherComparator = new WeatherComparator((String) cityView.getText());
-        temperatureView.setText(weatherComparator.getTemperature());
+        WeatherHandler weatherHandler = new WeatherHandler((String) cityView.getText());
+        temperatureView.setText(weatherHandler.getTemperature());
         temperatureView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
