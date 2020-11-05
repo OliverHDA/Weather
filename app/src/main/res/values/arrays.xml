@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="cities">
-    <item>Moscow</item>
-    <item>London</item>
-    <item>New York</item>
-    <item>Saint Petersburg</item>
-    <item>Voronezh</item>
-    <item>Vologda</item>
-    <item>Penza</item>
-    <item>Cherepovets</item>
+        <item>Moscow</item>
+        <item>London</item>
+        <item>New York</item>
+        <item>Saint Petersburg</item>
+        <item>Voronezh</item>
+        <item>Vologda</item>
+        <item>Penza</item>
+        <item>Cherepovets</item>
     </string-array>
 
     <integer-array name="cities_img">

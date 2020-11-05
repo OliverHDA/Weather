@@ -7,4 +7,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="textViewStyle">
+        <item name="android:textSize">@dimen/sizeTextView</item>
+        <item name="android:background">@color/colorBlack</item>
+        <item name="android:paddingHorizontal">@dimen/margin_and_padding</item>
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
 </resources>

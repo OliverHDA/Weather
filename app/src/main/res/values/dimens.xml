@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="sizeTemperatureText">32sp</dimen>
-    <dimen name="sizeCitiesText">32sp</dimen>
+    <dimen name="sizeTextView">32sp</dimen>
     <dimen name="sizeDetailText">16sp</dimen>
     <dimen name="margin_and_padding">16dp</dimen>
-
 </resources>
