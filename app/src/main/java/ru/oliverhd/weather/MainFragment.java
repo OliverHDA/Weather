@@ -111,6 +111,11 @@ public class MainFragment extends Fragment implements Constants {
 
                     } catch (Exception e) {
                         Log.e(TAG, "Fail connection", e);
+                        DialogConnectionErrorFragment dialogFragment =
+                                DialogConnectionErrorFragment.newInstance();
+                        dialogFragment.show(getFragmentManager(),
+                                "dialog_fragment");
+
                         e.printStackTrace();
                     } finally {
                         if (urlConnection != null) {
@@ -121,6 +126,7 @@ public class MainFragment extends Fragment implements Constants {
             }).start();
         } catch (MalformedURLException e) {
             Log.e(TAG, "Fail URI", e);
+
             e.printStackTrace();
         }
 
