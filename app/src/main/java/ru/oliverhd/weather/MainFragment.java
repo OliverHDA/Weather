@@ -140,6 +140,10 @@ public class MainFragment extends Fragment implements Constants {
                         .commit();
             }
         });
+
+//        WeatherHandler weatherHandler = new WeatherHandler();
+//        TextView temp2 = view.findViewById(R.id.temperature_text_view2);
+//        temp2.setText(Float.toString(weatherHandler.getTemperature((String) cityView.getText())));
     }
 
     private String getLines(BufferedReader in) {
