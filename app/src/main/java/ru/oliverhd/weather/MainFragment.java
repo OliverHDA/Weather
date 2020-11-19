@@ -141,8 +141,37 @@ public class MainFragment extends Fragment implements Constants {
             }
         });
 
+        final TextView temp2 = view.findViewById(R.id.temperature_text_view2);
+        final Handler handler = new Handler();
+        WeatherHandler weatherHandler = new WeatherHandler();
+
+        /*
+         * Вариант решения ДЗ3 №1
+         * */
+        weatherHandler.getData((String) cityView.getText(), new WeatherHandler.ResultCallback() {
+            @Override
+            public void onSuccess(final String result) {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        temp2.setText(result);
+                    }
+                });
+            }
+
+            @Override
+            public void onError(String error) {
+
+            }
+        });
+
+        /*
+         * Вариант решения ДЗ3 №2
+         * */
+        weatherHandler.getData2((String) cityView.getText(), handler, view);
+
+
 //        WeatherHandler weatherHandler = new WeatherHandler();
-//        TextView temp2 = view.findViewById(R.id.temperature_text_view2);
 //        temp2.setText(Float.toString(weatherHandler.getTemperature((String) cityView.getText())));
     }
 

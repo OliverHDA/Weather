@@ -16,16 +16,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-<!--    <TextView-->
-<!--        android:id="@+id/temperature_text_view2"-->
-<!--        style="@style/textViewStyle"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/temperature"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/city_text_view"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/temperature_text_view" />-->
+    <TextView
+        android:id="@+id/temperature_text_view2"
+        style="@style/textViewStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature"
+        app:layout_constraintBottom_toTopOf="@+id/city_text_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/temperature_text_view" />
 
     <TextView
         android:id="@+id/city_text_view"
