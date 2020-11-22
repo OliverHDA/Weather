@@ -13,6 +13,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 import ru.oliverhd.weather.fragments.CitiesFragment;
+import ru.oliverhd.weather.fragments.HistoryFragment;
 import ru.oliverhd.weather.fragments.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,6 +40,21 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         MenuItem search = menu.findItem(R.id.action_search);
+        MenuItem history = menu.findItem(R.id.action_history);
+        history.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new HistoryFragment())
+                            .addToBackStack(null)
+                            .commit();
+                }
+
+                return true;
+            }
+        });
         final SearchView searchView = (SearchView) search.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

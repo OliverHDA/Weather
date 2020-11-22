@@ -14,7 +14,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.oliverhd.weather.R;
 import ru.oliverhd.weather.interfaces.OpenWeather;
-import ru.oliverhd.weather.json_model.weather.WeatherRequest;
+import ru.oliverhd.weather.model.json_weather.WeatherRequest;
 
 public class WeatherRetrofitHandler {
 

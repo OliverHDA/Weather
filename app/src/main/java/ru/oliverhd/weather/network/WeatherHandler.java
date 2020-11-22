@@ -17,7 +17,7 @@ import java.net.URL;
 
 import ru.oliverhd.weather.BuildConfig;
 import ru.oliverhd.weather.R;
-import ru.oliverhd.weather.json_model.weather.WeatherRequest;
+import ru.oliverhd.weather.model.json_weather.WeatherRequest;
 
 public class WeatherHandler {
 
