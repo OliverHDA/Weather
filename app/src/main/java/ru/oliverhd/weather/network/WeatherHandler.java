@@ -1,4 +1,9 @@
-package ru.oliverhd.weather;
+package ru.oliverhd.weather.network;
+
+/*
+* Класс запроса к погодному серверу.
+* Сохранён для примера. Удалить, когда станет не нужен.
+* */
 
 import android.os.Handler;
 import android.util.Log;
@@ -10,7 +15,9 @@ import com.google.gson.Gson;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import ru.oliverhd.weather.model.WeatherRequest;
+import ru.oliverhd.weather.BuildConfig;
+import ru.oliverhd.weather.R;
+import ru.oliverhd.weather.json_model.weather.WeatherRequest;
 
 public class WeatherHandler {
 

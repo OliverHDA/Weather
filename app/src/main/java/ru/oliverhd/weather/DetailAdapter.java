@@ -1,5 +1,9 @@
 package ru.oliverhd.weather;
 
+/*
+* Адаптер для RecyclerView для детального отображения погоды по часам.
+* */
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 

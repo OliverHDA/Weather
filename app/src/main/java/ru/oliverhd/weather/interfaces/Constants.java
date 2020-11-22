@@ -5,4 +5,5 @@ public interface Constants {
     String RESULT_TEXT = "RESULT_TEXT";
     String CURRENT_CITY = "currentCity";
     String PARCEL = "parcel";
+    String TAG = "Weather";
 }

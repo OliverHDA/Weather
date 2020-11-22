@@ -1,4 +1,8 @@
-package ru.oliverhd.weather;
+package ru.oliverhd.weather.fragments;
+
+/*
+* Фрагмент для отображения списка городов
+* */
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -14,6 +18,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import ru.oliverhd.weather.CityAdapter;
+import ru.oliverhd.weather.Parcel;
+import ru.oliverhd.weather.R;
 import ru.oliverhd.weather.interfaces.Constants;
 
 public class CitiesFragment extends Fragment implements Constants {
@@ -113,19 +120,19 @@ public class CitiesFragment extends Fragment implements Constants {
 
     public void showWeatherDetail(Parcel parcel) {
         if (isExistWeatherDetail) {
-            WeatherDetailFragment detail = (WeatherDetailFragment) getFragmentManager().findFragmentById(R.id.weather_info);
+            WeatherDetailFragment detail = (WeatherDetailFragment) getFragmentManager().findFragmentById(R.id.temperature_text_view);
             if (detail == null) {
                 detail = WeatherDetailFragment.create(parcel);
 
                 getFragmentManager().
                         beginTransaction()
-                        .replace(R.id.weather_info, detail)
+                        .replace(R.id.temperature_text_view, detail)
                         .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                         .commit();
             } else {
                 getFragmentManager()
                         .beginTransaction()
-                        .replace(R.id.weather_info, WeatherDetailFragment.create(parcel))
+                        .replace(R.id.temperature_text_view, WeatherDetailFragment.create(parcel))
                         .addToBackStack(null)
                         .commit();
             }

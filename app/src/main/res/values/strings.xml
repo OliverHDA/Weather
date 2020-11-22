@@ -17,5 +17,6 @@
     <string name="search">Search</string>
     <string name="dialog_error_message">Connection error!</string>
     <string name="ok">Ok</string>
+    <string name="history">History</string>
 
 </resources>
