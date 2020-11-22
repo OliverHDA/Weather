@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
 
 import javax.net.ssl.HttpsURLConnection;
 
+import ru.oliverhd.weather.interfaces.Constants;
 import ru.oliverhd.weather.model.WeatherRequest;
 
 public class WeatherDetailFragment extends Fragment implements Constants {
