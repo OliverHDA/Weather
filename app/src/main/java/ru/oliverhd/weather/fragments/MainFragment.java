@@ -1,4 +1,8 @@
-package ru.oliverhd.weather;
+package ru.oliverhd.weather.fragments;
+
+/*
+* Основной фрагмент для отображения погоды и города.
+* */
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -13,14 +17,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import ru.oliverhd.weather.BuildConfig;
+import ru.oliverhd.weather.Parcel;
+import ru.oliverhd.weather.R;
 import ru.oliverhd.weather.interfaces.Constants;
-import ru.oliverhd.weather.interfaces.OpenWeather;
-import ru.oliverhd.weather.model.WeatherRequest;
+import ru.oliverhd.weather.network.WeatherHandler;
+import ru.oliverhd.weather.network.WeatherRetrofitHandler;
 
 public class MainFragment extends Fragment implements Constants {
 
@@ -28,9 +30,6 @@ public class MainFragment extends Fragment implements Constants {
     private TextView cityTextView;
     private TextView temperatureTextView;
     Parcel currentParcel;
-    private OpenWeather openWeather;
-    private float AbsoluteZero = -273;
-    private static final String TAG = "Weather";
 
     public static MainFragment create(Parcel parcel) {
         MainFragment fragment = new MainFragment();
@@ -68,7 +67,7 @@ public class MainFragment extends Fragment implements Constants {
         WeatherRetrofitHandler weatherRetrofitHandler = new WeatherRetrofitHandler();
         weatherRetrofitHandler.initRetrofit();
         weatherRetrofitHandler.requestRetrofit((String) cityTextView.getText(), BuildConfig.WEATHER_API_KEY, view);
-        
+
         final Handler handler = new Handler();
         WeatherHandler weatherHandler = new WeatherHandler();
 
@@ -96,53 +95,6 @@ public class MainFragment extends Fragment implements Constants {
 //
 //            }
 //        });
-
-//        try {
-//            final String url = String.format("https://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s", cityTextView.getText(), BuildConfig.WEATHER_API_KEY);
-//            final URL uri = new URL(url);
-//            final Handler handler = new Handler();
-//            new Thread(new Runnable() {
-//                public void run() {
-//                    HttpsURLConnection urlConnection = null;
-//                    try {
-//                        urlConnection = (HttpsURLConnection) uri.openConnection();
-//                        urlConnection.setRequestMethod("GET");
-//                        urlConnection.setReadTimeout(10000);
-//
-//                        BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
-//                        String result = getLines(in);
-//
-//                        Gson gson = new Gson();
-//                        final WeatherRequest weatherRequest = gson.fromJson(result, WeatherRequest.class);
-//                        handler.post(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                temperatureTextView.setText(Float.toString((weatherRequest.getMain().getTemp() - 273)));
-//                            }
-//                        });
-//
-//
-//                    } catch (Exception e) {
-//                        Log.e(TAG, "Fail connection", e);
-//                        DialogConnectionErrorFragment dialogFragment =
-//                                DialogConnectionErrorFragment.newInstance();
-//                        dialogFragment.show(getFragmentManager(),
-//                                "dialog_fragment");
-//
-//                        e.printStackTrace();
-//                    } finally {
-//                        if (urlConnection != null) {
-//                            urlConnection.disconnect();
-//                        }
-//                    }
-//                }
-//            }).start();
-//        } catch (MalformedURLException e) {
-//            Log.e(TAG, "Fail URI", e);
-//
-//            e.printStackTrace();
-//        }
-
     }
 
     private void initGui(View view) {
@@ -204,8 +156,4 @@ public class MainFragment extends Fragment implements Constants {
 //    public void onSaveInstanceState(@NonNull Bundle outState) {
 //        outState.putSerializable(CURRENT_CITY, currentParcel);
 //        super.onSaveInstanceState(outState);
-//
-//    private String getLines(BufferedReader in) {
-//        return in.lines().collect(Collectors.joining("\n"));
-//    }
 }

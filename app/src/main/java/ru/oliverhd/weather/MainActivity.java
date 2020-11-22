@@ -12,6 +12,9 @@ import android.widget.SearchView;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
+import ru.oliverhd.weather.fragments.CitiesFragment;
+import ru.oliverhd.weather.fragments.MainFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override

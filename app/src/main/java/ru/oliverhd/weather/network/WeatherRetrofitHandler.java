@@ -1,4 +1,8 @@
-package ru.oliverhd.weather;
+package ru.oliverhd.weather.network;
+
+/*
+* Класс запроса к погодному серверу с помощью библиотеки Retrofit.
+* */
 
 import android.view.View;
 import android.widget.TextView;
@@ -8,25 +12,22 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import ru.oliverhd.weather.R;
 import ru.oliverhd.weather.interfaces.OpenWeather;
-import ru.oliverhd.weather.model.WeatherRequest;
+import ru.oliverhd.weather.json_model.weather.WeatherRequest;
 
 public class WeatherRetrofitHandler {
 
-    private static final String TAG = "Weather";
     private OpenWeather openWeather;
     private float AbsoluteZero = -273;
 
     public void initRetrofit() {
         Retrofit retrofit;
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://api.openweathermap.org/") // Базовая часть
-                // адреса
-                // Конвертер, необходимый для преобразования JSON
-                // в объекты
+                .baseUrl("https://api.openweathermap.org/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        // Создаём объект, при помощи которого будем выполнять запросы
+
         openWeather = retrofit.create(OpenWeather.class);
     }
 
@@ -39,8 +40,8 @@ public class WeatherRetrofitHandler {
                     public void onResponse(Call<WeatherRequest> call, Response<WeatherRequest> response) {
                         if (response.body() != null) {
                             float result = response.body().getMain().getTemp() + AbsoluteZero;
-
-                            textTemp.setText(Float.toString(result));
+                            String resultString = String.format("%.0f °C", result);
+                            textTemp.setText(resultString);
                         }
                     }
 

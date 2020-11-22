@@ -1,8 +1,10 @@
-package ru.oliverhd.weather;
+package ru.oliverhd.weather.network;
+
+/*
+* Класс соединения с погодным сервисом.
+* */
 
 import android.util.Log;
-
-import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,9 +13,9 @@ import java.util.stream.Collectors;
 
 import javax.net.ssl.HttpsURLConnection;
 
-public class NetworkHandler {
+import ru.oliverhd.weather.interfaces.Constants;
 
-    private static final String TAG = "Weather";
+public class NetworkHandler implements Constants {
 
     String getData(URL url) {
         String result = null;

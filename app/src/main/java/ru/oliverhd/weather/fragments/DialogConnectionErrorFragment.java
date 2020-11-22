@@ -1,4 +1,8 @@
-package ru.oliverhd.weather;
+package ru.oliverhd.weather.fragments;
+
+/*
+* Фрагмент дял отображения ошибки соединения в диалоговом окне.
+* */
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+import ru.oliverhd.weather.R;
 
 public class DialogConnectionErrorFragment extends BottomSheetDialogFragment {
 
