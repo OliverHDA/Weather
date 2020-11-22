@@ -1,4 +1,4 @@
-package ru.oliverhd.weather;
+package ru.oliverhd.weather.interfaces;
 
 public interface Constants {
     String TEXT = "TEXT";

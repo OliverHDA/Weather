@@ -16,6 +16,10 @@ public class WeatherHandler {
 
     private static final String TAG = "Weather";
 
+
+
+
+
     /*
      * Вариант решения ДЗ3 №1
      * */
