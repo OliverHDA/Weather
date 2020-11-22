@@ -1,4 +1,4 @@
-package ru.oliverhd.weather.json_model.weather;
+package ru.oliverhd.weather.model.json_weather;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

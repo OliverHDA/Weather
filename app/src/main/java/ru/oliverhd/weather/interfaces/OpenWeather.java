@@ -3,7 +3,7 @@ package ru.oliverhd.weather.interfaces;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-import ru.oliverhd.weather.json_model.weather.WeatherRequest;
+import ru.oliverhd.weather.model.json_weather.WeatherRequest;
 
 public interface OpenWeather {
 
