@@ -1,8 +1,8 @@
 package ru.oliverhd.weather.fragments;
 
 /*
-* Фрагмент для отображения списка городов
-* */
+ * Фрагмент для отображения списка городов
+ * */
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -67,7 +67,7 @@ public class CitiesFragment extends Fragment implements Constants {
     }
 
     private void initRecyclerView(String[] data, View view) {
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_city);
 
         recyclerView.setHasFixedSize(true);
 

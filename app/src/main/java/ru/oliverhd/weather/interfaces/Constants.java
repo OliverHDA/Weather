@@ -6,4 +6,5 @@ public interface Constants {
     String CURRENT_CITY = "currentCity";
     String PARCEL = "parcel";
     String TAG = "Weather";
+    float ABSOLUTE_ZERO = -273;
 }

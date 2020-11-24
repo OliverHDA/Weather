@@ -13,13 +13,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import ru.oliverhd.weather.R;
+import ru.oliverhd.weather.interfaces.Constants;
 import ru.oliverhd.weather.interfaces.OpenWeather;
 import ru.oliverhd.weather.model.json_weather.WeatherRequest;
 
-public class WeatherRetrofitHandler {
+public class WeatherRetrofitHandler implements Constants {
 
     private OpenWeather openWeather;
-    private float AbsoluteZero = -273;
+
 
     public void initRetrofit() {
         Retrofit retrofit;
@@ -39,7 +40,7 @@ public class WeatherRetrofitHandler {
                     @Override
                     public void onResponse(Call<WeatherRequest> call, Response<WeatherRequest> response) {
                         if (response.body() != null) {
-                            float result = response.body().getMain().getTemp() + AbsoluteZero;
+                            float result = response.body().getMain().getTemp() + ABSOLUTE_ZERO;
                             String resultString = String.format("%.0f °C", result);
                             textTemp.setText(resultString);
                         }
