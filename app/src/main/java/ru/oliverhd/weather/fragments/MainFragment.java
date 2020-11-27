@@ -20,6 +20,10 @@ import android.widget.TextView;
 import ru.oliverhd.weather.BuildConfig;
 import ru.oliverhd.weather.Parcel;
 import ru.oliverhd.weather.R;
+import ru.oliverhd.weather.db.App;
+import ru.oliverhd.weather.db.SearchHistorySource;
+import ru.oliverhd.weather.db.dao.HistoryDao;
+import ru.oliverhd.weather.db.model.SearchHistory;
 import ru.oliverhd.weather.interfaces.Constants;
 import ru.oliverhd.weather.network.WeatherHandler;
 import ru.oliverhd.weather.network.WeatherRetrofitHandler;
@@ -30,6 +34,7 @@ public class MainFragment extends Fragment implements Constants {
     private TextView cityTextView;
     private TextView temperatureTextView;
     Parcel currentParcel;
+    SearchHistorySource searchHistorySource;
 
     public static MainFragment create(Parcel parcel) {
         MainFragment fragment = new MainFragment();
@@ -75,6 +80,16 @@ public class MainFragment extends Fragment implements Constants {
          * Вариант решения ДЗ3 №2
          * */
         weatherHandler.getData2((String) cityTextView.getText(), handler, view);
+
+        HistoryDao historyDao = App
+                .getInstance()
+                .getHistoryDao();
+        searchHistorySource = new SearchHistorySource(historyDao);
+        SearchHistory searchHistory = new SearchHistory();
+        searchHistory.city = (String) cityTextView.getText();
+        searchHistory.temperature = (String) temperatureTextView.getText();
+        searchHistory.date = "Дата";
+        searchHistorySource.addSearchHistory(searchHistory);
 
         /*
          * Вариант решения ДЗ3 №1

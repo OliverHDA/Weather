@@ -17,15 +17,10 @@ import java.net.URL;
 
 import ru.oliverhd.weather.BuildConfig;
 import ru.oliverhd.weather.R;
+import ru.oliverhd.weather.interfaces.Constants;
 import ru.oliverhd.weather.model.json_weather.WeatherRequest;
 
-public class WeatherHandler {
-
-    private static final String TAG = "Weather";
-
-
-
-
+public class WeatherHandler implements Constants {
 
     /*
      * Вариант решения ДЗ3 №1
@@ -70,7 +65,9 @@ public class WeatherHandler {
                     handler.post(new Runnable() {
                         @Override
                         public void run() {
-                            showData(view, Float.toString((weatherRequest.getMain().getTemp() - 273)));
+                            float result = weatherRequest.getMain().getTemp() + ABSOLUTE_ZERO;
+                            String resultString = String.format("%.0f °C", result);
+                            showData(view, resultString);
                         }
                     });
                 }

@@ -1,8 +1,8 @@
 package ru.oliverhd.weather;
 
 /*
-* Адаптер для RecyclerView городов.
-* */
+ * Адаптер для RecyclerView городов.
+ * */
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
