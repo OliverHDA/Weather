@@ -23,7 +23,6 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             title = "Push Message";
         }
         String text = remoteMessage.getNotification().getBody();
-        // создать нотификацию
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "2")
                 .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(title)
@@ -36,9 +35,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(String token) {
         super.onNewToken(token);
-        // Если надо посылать сообщения этому экземпляру приложения
-        // или управлять подписками приложения на стороне сервера,
-        // сохраните этот токен в базе данных. отправьте этот токен вашему
+
         Log.d("PushMessage", "Token " + token);
         sendRegistrationToServer(token);
     }
